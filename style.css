@@ -816,7 +816,7 @@ body {
     transform-origin: 0 bottom 0;
     width: 64%;
     z-index: 2;
-    background: rgba(134, 188, 66, 0.6) none repeat scroll 0 0;
+    /*background: rgba(134, 188, 66, 0.6) none repeat scroll 0 0;*/
 }
 .overlay-light-fullwidth::after, .overlay-light-2-fullwidth::after, .overlay-dark-fullwidth::after, .overlay-dark-2-fullwidth::after {
     transform: none
@@ -2627,3 +2627,5 @@ span.c-text {display: inline-block;}
 .block.padding .btn-group {margin-bottom: 22px;}
 .btn-toolbar.padding {margin-bottom: 20px;}
 .btn-toolbar.padding:nth-last-of-type(1) {margin-bottom: 0;}
+
+

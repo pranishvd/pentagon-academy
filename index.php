@@ -2,7 +2,7 @@
 <?php 
 include("config.php");
 ?>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" style="background-color: #2565AE">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -83,6 +83,24 @@ include("config.php");
 		<!-- Modernizr JS
 		============================================ -->		
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <style>
+            .navbar-brand{
+                color:#0099e6;text-transform: uppercase; font-size: 30px;
+            }
+
+            /*mobile heading*/
+
+        @media only screen and (max-width: 600px) {
+            .mobile-menu-area{
+                    margin-top: 10px
+
+                        }
+            .navbar-brand{
+                margin-top: 20px;
+                font-size: 21px;
+            }
+            
+ </style>
 	    
     </head>
     <body>
@@ -115,7 +133,7 @@ include("config.php");
                         <div class="container">
                             <div class="row">
                                 
-                                    <h1 id="logo_pent"  class="navbar-brand" style="color:#0099e6;text-transform: uppercase; font-size: 30px;">Pentagon Academy</h1></a>
+                                    <h1 id="logo_pent"  class="navbar-brand" ><span class="top">Pentagon</span> <span class="down">Academy</span></h1></a>
                                 <div class="col-md-9">
                                     <div class="mainmenu-area pull-right">
                                         <div class="mainmenu hidden-sm hidden-xs">
@@ -395,7 +413,7 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                                         </a>
                                     </div>
                                     <div class="single-event-text">
-                                        <h3><a href="#">COMMERCE/₹9k-11k per Year</a></h3>
+                                        <h3><a href="#">COMMERCE</a></h3>
                                         <hr>
                                         
                                         <p>Accountancy</p>
@@ -417,15 +435,15 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                                         </a>
                                     </div>
                                     <div class="single-event-text">
-                                        <h3><a href="#">SCIENCE/₹10k-12k per Year</a></h3>
+                                        <h3><a href="#">UG/PG</a></h3>
                                         <hr>
-                                        <p>Chemistry</p>
-                                        <p>Physics</p>
-                                        <p>Maths</p>
-                                        <p>Computer Science</p>
-                                        <p>Computer Application</p>
-                                        <p>Biology</p>
-                                        <p>Psychology</p>   
+                                        <p>BCOM</p>
+                                        <p>BBA</p>
+                                        <p>BCA</p>
+                                        <p>MCOM</p>
+                                        <p>MBA</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>   
                                     </div>
                                 </div>
                             </div>
@@ -438,7 +456,7 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                                         </a>
                                     </div>
                                     <div class="single-event-text">
-                                        <h3 ><a href="#">NIOS ONE YEAR PLUS2/-per Year</a></h3>
+                                        <h3 ><a href="#">NIOS ONE YEAR PLUS2</a></h3>
                                         <hr>
                                         <div class="single-item-comment-view">
                                            <p>Commerce</p>
@@ -566,9 +584,8 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                                     <p>United Building,2nd Floor</p>
                                     <p>Panniyankara,Nr.HP Petrol Bunk</p>
                                     <p>Kozhikode-673003</p>
-                                    <a href="tel:555-555-1212"><i class="fa fa-phone"></i>7736670074, 9747032395, 9526893575</a>
+                                    <a href="tel:555-555-1212"><i class="fa fa-phone"></i>7736670074,9526893575</a>
                                     <span><i class="fa fa-envelope"></i>pentagongroupofinstitution@gmail.com</span>
-                                    <span><i class="fa fa-globe"></i>www.educat.com</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-4">
