@@ -10,14 +10,14 @@ include("config.php");
     <meta name="author" content="">
     <title>Pentagon academy ,Best tution center in calicut,Best tution center in calicut,tution for plus two,tution for plus one,hiegher secondary calicut,pentagon academy,calicut,kozhicode,pentagonacademy.com,commerce,best kozhikode,tution center,privet school,one year,one year plus two,one year hier secondary,kerala,mcom,bcom,bca,bba,pentagon academy com,pentagonacademy.com,pentagonacademy calicut,pentagon academy kozhikode,malappuram,kannur,pentagonacademy calicut,pentagon academy kozhikode </title>
 	<!-- core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.transitions.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css1/bootstrap.min.css" rel="stylesheet">
+    <link href="css1/font-awesome.min.css" rel="stylesheet">
+    <link href="css1/animate.min.css" rel="stylesheet">
+    <link href="css1/owl.carousel.css" rel="stylesheet">
+    <link href="css1/owl.transitions.css" rel="stylesheet">
+    <link href="css1/prettyPhoto.css" rel="stylesheet">
+    <link href="css1/main.css" rel="stylesheet">
+    <link href="css1/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -170,13 +170,6 @@ top:20px;
 </head><!--/head-->
 
 <body id="home" class="homepage" >
-
-<!--<div id="confirm" class="panel panel-default">-->
-         
-<!--         <button class="yes">Close </button>-->
-         <!--<img src = "bg.jpeg"
-<!--                      width="120" height="70"/>-->
-<!--      </div>-->
     <header id="header">
         <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
             <div class="container">
@@ -187,20 +180,18 @@ top:20px;
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html" ><h2 id="logo_pent" style="color:#0099e6;text-transform: uppercase;"><span style="color: #2d5986;">Pentagon </span>Academy</h2></a>
+                    <a class="navbar-brand" href="index.html" ><h2 id="logo_pent" style="color:#0099e6;text-transform: uppercase;"><span style="color: #0099e6;">Pentagon Academy</h2></a>
                 </div>
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="scroll"><a href="index.html">Home</a></li>
+                        <li class="scroll"><a href="index.php">Home</a></li>
                                       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">About us
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-     <li class="scroll"><a href="index.html#about">Pentagon Academy</a></li>     
-    <li><a href="index.html#features">Core Values</a></li>
-	<li><a href="index.html#cta2">Vision</a></li>    
-	<li><a href="index.html#services">Mission</a></li>
+     <li class="scroll"><a href="index.php#about">Pentagon Academy</a></li>     
+    <li><a href="index.php#core-value">Core Values</a></li>
         </ul>
       </li>  
        <li class="scroll"><a href="#">Gallery</a></li>
@@ -248,9 +239,9 @@ $exam=$_GET['id'];
     
 
     <footer id="footer">
-        <div class="container">
+        <div class="container" >
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6" >
                     
                 </div>
                 <div class="col-sm-6">
@@ -265,16 +256,16 @@ $exam=$_GET['id'];
         </div>
     </footer><!--/#footer-->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js1/jquery.js"></script>
+    <script src="js1/bootstrap.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/mousescroll.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/jquery.inview.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js1/owl.carousel.min.js"></script>
+    <script src="js1/mousescroll.js"></script>
+    <script src="js1/smoothscroll.js"></script>
+    <script src="js1/jquery.prettyPhoto.js"></script>
+    <script src="js1/jquery.isotope.min.js"></script>
+    <script src="js1/jquery.inview.min.js"></script>
+    <script src="js1/wow.min.js"></script>
+    <script src="js1/main.js"></script>
 </body>
 </html>

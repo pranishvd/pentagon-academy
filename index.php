@@ -152,7 +152,7 @@ include("config.php");
        -->  
    </ul>
       </li>  
-       <li class="scroll"><a href="#">Gallery</a></li>
+       <li class="scroll"><a href="gallery_test.html">Gallery</a></li>
                                            <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Students Portal
         <span class="caret"></span></a>
@@ -184,20 +184,20 @@ include("config.php");
                                     <div class="mobile-menu">
                                         <nav id="dropdown">
                                             <ul>
-                                                <li><a href="index.html">HOME</a></li>
-                                                <li><a href="courses.html">About Us</a>
+                                                <li><a href="index.php">HOME</a></li>
+                                                <li><a href=".about-container">About Us</a>
                                                     <ul class="sub-menu">
                                                         <li><a href="#about">Pentagon Academy</a></li>
                                                         <li><a href="#core-value">Core Values</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="shop-grid.html">Gallery</a>
+                                                <li><a href="gallery_test.html">Gallery</a>
                                                 </li>
                                                 <li><a href="event.html">Student Portal</a>
                                                     <ul class="sub-menu">
                                                         <li><a href="event-details.html">Online Examinations</a></li>
                                                         <li><a href="result.php">Results</a></li>
-                                                        <li><a href="event-details.html">Study Mateerials</a></li>
+                                                        <li><a href="studymaterials.php">Study Mateerials</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="index.html">Courses</a>
@@ -281,30 +281,22 @@ include("config.php");
 
 			
 			<section style="background-color:#f0f0f0;" >
-                <marquee  direction="left" height="35%">
-        <div class="container" >
-            <div class="section-header">
-                
-                  <?php 
-          
-    $qry1="SELECT * FROM `notification`";
-    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
-    while($row=mysqli_fetch_array($done1))
-      {
-          ?>
-         <h4 class=" text-center " style="color:DodgerBlue;"><?php echo "*".$row[1]."*"; ?></h4>
-          <?php           
-      }
-      ?>
-                
-                
-                
-           
-            </div>
-            </div>
-             
-</marquee>
-            </section>
+             <marquee  direction="left" height="35%">
+                <div class="container" >
+                    <div class="section-header" style="display: flex;">
+                <?php 
+                    $qry1="SELECT * FROM `notification`";
+                    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
+                    while($row=mysqli_fetch_array($done1))
+                    { ?>
+                    <h4 class=" text-center " style="color:DodgerBlue;"><?php echo "*".$row[1]."*"; ?></h4>
+                    <?php           
+                            }
+                        ?>
+                        </div>
+                        </div>
+                        </marquee>
+                            </section>
 		
                 <!--About Area Start--> 
                 <div class="about-area" id="about" style="margin-top:15px">
@@ -314,7 +306,7 @@ include("config.php");
                                 <div class="about-container" >
                                     <h3 >About Us</h3>
                                     <p>Pentagon Academy, a resourceful coaching center for higher studies started functioning on Calicut. The center was established by Team pentagon in 2018 with the main aim to transform the way student think and do things through education, and service become active participants in shaping the world of the future</p>
-                                    <a class="button-default" href="#">Learn Now</a>	      
+                                    <a class="button-default" href="#our-course">Learn Now</a>	      
                                 </div>
                             </div>
                         </div>
@@ -322,11 +314,11 @@ include("config.php");
                 </div>
                 <!--End of About Area-->
 
-        <section id="features">
+            <section id="features">
                 <div class="container">
-             <div class="section-title-wrapper">
-                <div class="section-title" id="core-value">
-                    <h3  style="padding: 10px; margin-top: 50px">CORE VALUES</h3>
+                <div class="section-title-wrapper">
+                    <div class="section-title" id="core-value">
+                        <h3  style="padding: 10px; margin-top: 50px">CORE VALUES</h3>
                 </div>
               </div>
             <div class="row">
@@ -392,7 +384,7 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
 
                 <!--Course Area Start-->
                 <div class="event-area section-padding bg-white">
-                    <div class="container">
+                    <div class="container" id="our-course">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-title-wrapper">
@@ -413,7 +405,7 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                                         </a>
                                     </div>
                                     <div class="single-event-text">
-                                        <h3><a href="#">COMMERCE</a></h3>
+                                        <h3><a href="#" style="color: #2565AE">COMMERCE Tuition </a></h3>
                                         <hr>
                                         
                                         <p>Accountancy</p>
@@ -435,7 +427,7 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                                         </a>
                                     </div>
                                     <div class="single-event-text">
-                                        <h3><a href="#">UG/PG</a></h3>
+                                        <h3><a href="#" style="color: #2565AE">UG,PG Tuition</a></h3>
                                         <hr>
                                         <p>BCOM</p>
                                         <p>BBA</p>
@@ -456,10 +448,11 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                                         </a>
                                     </div>
                                     <div class="single-event-text">
-                                        <h3 ><a href="#">NIOS ONE YEAR PLUS2</a></h3>
+                                        <h3 ><a href="#" style="color: #2565AE">NIOS ONE YEAR PLUS2</a></h3>
                                         <hr>
                                         <div class="single-item-comment-view">
                                            <p>Commerce</p>
+                                           <p>&nbsp;</p>
                                            <p>&nbsp;</p>
                                            <p>&nbsp;</p>
                                            <p>&nbsp;</p>
@@ -478,13 +471,13 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                 <!--Fun Factor Area Start-->
                 
                 <!--Event Area Start-->
-                <div class="event-area section-padding bg-white" >
+                <div class="event-area section-padding bg-white">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-title-wrapper" >
                                     <div class="section-title">
-                                        <h3 style="padding: 8px" id="team">Meet The Team</h3>
+                                        <h3 style="padding: 8px" id="meet-team">Meet The Team</h3>
                                     </div>
                                 </div>
                             </div>
@@ -585,7 +578,7 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                                     <p>Panniyankara,Nr.HP Petrol Bunk</p>
                                     <p>Kozhikode-673003</p>
                                     <a href="tel:555-555-1212"><i class="fa fa-phone"></i>7736670074,9526893575</a>
-                                    <span><i class="fa fa-envelope"></i>pentagongroupofinstitution@gmail.com</span>
+                                    <!-- <span><i class="fa fa-envelope"></i>pentagongroupofinstitution@gmail.com</span> -->
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-4">

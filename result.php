@@ -18,6 +18,85 @@ include("config.php");
     <link href="css1/prettyPhoto.css" rel="stylesheet">
     <link href="css1/main.css" rel="stylesheet">
     <link href="css1/responsive.css" rel="stylesheet">
+
+
+   <!-- main styles -->
+
+
+    <!-- favicon
+    ============================================ -->    
+        <link rel="shortcut icon" type="image/x-icon" href="img/photo.jpg">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    
+    <!-- Google Fonts
+    ============================================ -->    
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800' rel='stylesheet' type='text/css'>
+        <script src="https://kit.fontawesome.com/34a3670202.js" crossorigin="anonymous"></script>
+     
+    <!-- Bootstrap CSS
+    ============================================ -->    
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/grid.css">
+        
+    <!-- Fontawsome CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        
+    <!-- Owl Carousel CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        
+    <!-- jquery-ui CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        
+    <!-- Meanmenu CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/meanmenu.min.css">
+        
+    <!-- Animate CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/animate.css">
+        
+    <!-- Animated Headlines CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/animated-headlines.css">
+        
+        <!-- Nivo slider CSS
+    ============================================ -->
+    <link rel="stylesheet" href="lib/nivo-slider/css/nivo-slider.css" type="text/css" />
+    <link rel="stylesheet" href="lib/nivo-slider/css/preview.css" type="text/css" media="screen" />
+        
+    <!-- Metarial Iconic Font CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/material-design-iconic-font.css">
+        <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+        
+    <!-- Slick CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/slick.css">
+        
+    <!-- Video CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/jquery.mb.YTPlayer.css">
+        
+    <!-- Style CSS
+    ============================================ -->
+        <link rel="stylesheet" href="style.css">
+        
+    <!-- Color CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/color.css">
+        
+    <!-- Responsive CSS
+    ============================================ -->
+        <link rel="stylesheet" href="css/responsive.css">
+        
+    <!-- Modernizr JS
+    ============================================ -->    
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -170,13 +249,6 @@ top:20px;
 </head><!--/head-->
 
 <body id="home" class="homepage" >
-
-<!--<div id="confirm" class="panel panel-default">-->
-         
-<!--         <button class="yes">Close </button>-->
-         <!--<img src = "bg.jpeg"
-<!--                      width="120" height="70"/>-->
-<!--      </div>-->
     <header id="header">
         <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
             <div class="container">
@@ -187,20 +259,18 @@ top:20px;
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html" ><h2 id="logo_pent" style="color:#0099e6;text-transform: uppercase;"><span style="color: #2d5986;">Pentagon </span>Academy</h2></a>
+                    <a class="navbar-brand" href="index.html" ><h2 id="logo_pent" style="color:#0099e6;text-transform: uppercase;"><span style="color: #0099e6;">Pentagon Academy</h2></a>
                 </div>
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="scroll"><a href="index.html">Home</a></li>
+                        <li class="scroll"><a href="index.php">Home</a></li>
                                       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">About us
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-     <li class="scroll"><a href="index.html#about">Pentagon Academy</a></li>     
-    <li><a href="index.html#features">Core Values</a></li>
-	<li><a href="index.html#cta2">Vision</a></li>    
-	<li><a href="index.html#services">Mission</a></li>
+     <li class="scroll"><a href="index.php#about">Pentagon Academy</a></li>     
+    <li><a href="index.php#core-value">Core Values</a></li>
         </ul>
       </li>  
        <li class="scroll"><a href="#">Gallery</a></li>
@@ -228,10 +298,11 @@ top:20px;
 
     <section id="features">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title text-center wow fadeInDown">Exams</h2>
-                
-            </div>
+            <div class="section-title-wrapper">
+                    <div class="section-title" id="core-value">
+                        <h3  style="padding: 10px; margin-top: 50px">EXAMS</h3>
+                </div>
+              </div>
             <div class="row">
       <?php 
           
