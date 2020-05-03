@@ -2,14 +2,14 @@
 include("config.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: #fff">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Pentagon academy ,Best tution center in calicut,Best tution center in calicut,tution for plus two,tution for plus one,hiegher secondary calicut,pentagon academy,calicut,kozhicode,pentagonacademy.com,commerce,best kozhikode,tution center,privet school,one year,one year plus two,one year hier secondary,kerala,mcom,bcom,bca,bba,pentagon academy com,pentagonacademy.com,pentagonacademy calicut,pentagon academy kozhikode,malappuram,kannur,pentagonacademy calicut,pentagon academy kozhikode </title>
-	<!-- core CSS -->
+    <!-- core CSS -->
     <link href="css1/bootstrap.min.css" rel="stylesheet">
     <link href="css1/font-awesome.min.css" rel="stylesheet">
     <link href="css1/animate.min.css" rel="stylesheet">
@@ -20,8 +20,7 @@ include("config.php");
     <link href="css1/responsive.css" rel="stylesheet">
 
 
-
-    <!-- main styles -->
+   <!-- main styles -->
 
 
     <!-- favicon
@@ -33,7 +32,7 @@ include("config.php");
     <!-- Google Fonts
     ============================================ -->    
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800' rel='stylesheet' type='text/css'>
-        <script src="https://kit.fontawesome.com/34a3670202.js" crossorigin="anonymous"></script>
+        <!-- <script src="https://kit.fontawesome.com/34a3670202.js" crossorigin="anonymous"></script> -->
      
     <!-- Bootstrap CSS
     ============================================ -->    
@@ -99,6 +98,8 @@ include("config.php");
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
 
+
+
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -108,150 +109,11 @@ include("config.php");
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/photo.jpg">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/photo.jpg">
     <link rel="apple-touch-icon-precomposed" href="images/photo.jpg">
-    <style type="text/css">
-         #slide-sm1
-            {
-        background-image: url('bg1.JPG');
-        height: 500px;
-            } 
-            .slide-sm{
-                height: 500px;
-            }       
-        @media screen and (max-width: 800px) {
-         #slide-sm1
-            {
-           background-repeat: no-repeat;
-            background-size: 30px 100px;
-            
-             }
-        }
+    
+    
+</head>
 
- /* pop up*/
-#confirm {
-	    z-index:2147483647 ;
-            display: none;
-	    opacity:.9;
-            background-image: url(banner.png);
-	    background-repeat: no-repeat;
-	    background-size: 100% 100%;  
-            border: 1px solid #aaa;
-            position: fixed;
-            width: 40%;
-	    top :10px;
-	    left:30%;	
-	    height :95%;         
-            padding: 6px 8px 8px;
-            box-sizing: border-box;
-            text-align: center;
-            border-radius: 5px;
-         }
-         #confirm button {
-            background-color: rgba(51, 170, 51, .0) ;
-            display: inline-block;
-            border-radius: 10px;
-	    margin-right:4%;
-            position: absolute;
-	    margin-left:90%;
-	    right:0;
-	    color : #fff;
-            border: 1px solid #aaa;
-            padding: 5px;
-            text-align: center;
-            width: auto;
-	    font-weight: bold;
-            cursor: pointer;
-         }
-         #confirm button:hover {
-	   background-color:#00264d;
-	   color : #fff; 
-	 }
-         }
-         #confirm .message {
-            text-align: left;
-           
-         }
-@media screen and (max-width: 800px) {
- #confirm {
-	    
-            display: none;
-	    opacity:.9;
-            background-image: url(banner.png);
-	    background-repeat: no-repeat;
-	    background-size: 100% 100%;  
-            border: 1px solid #aaa;
-            position: fixed;
-            width: 90%;
-	    margin-top :20px;
-	    left:5%;	
-	    height :90%;         
-            padding: 6px 8px 8px;
-            box-sizing: border-box;
-            text-align: center;
-            border-radius: 5px;
-         }
-         #confirm button {
-            background-color: rgba(51, 170, 51, .0) ;
-            display: inline-block;
-            border-radius: 10px;
-	    margin-right:4%;
-            position: absolute;
-	    margin-left:90%;
-	    right:0;
-	    color : #fff;
-            border: 1px solid #aaa;
-            padding: 5px;
-            text-align: center;
-            width: auto;
-	    font-weight: bold;
-            cursor: pointer;
-         }
-         #confirm button:hover {
-	   background-color:#00264d;
-	   color : #fff; 
-	 }
-         }
-         #confirm .message {
-            text-align: left;
-           
-         }
-
-}
-.carousel-inner img {
-  -webkit-filter: grayscale(90%);
-  filter: grayscale(90%); /* make all photos black and white */
-  width: 100%; /* Set width to 100% */
-  margin: auto;
-  height : 50px;
-}
-@media screen and (max-width: 800px) {
-.carousel-inner
-{
-top:20px;
-}
-#logo_pent
-{
-    font-size :15px;
-}
-}
-
-    </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-      </script>
-      <script>
-         function functionAlert(msg, myYes) {
-            var confirmBox = $("#confirm");
-            confirmBox.find(".message").text(msg);
-            confirmBox.find(".yes").unbind().click(function() {
-               confirmBox.hide();
-            });
-            confirmBox.find(".yes").click(myYes);
-            confirmBox.show();
-         }
-      </script>
-</head><!--/head-->
-
-<body id="home" class="homepage" >
-    <header id="header">
+<body>
         <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
             <div class="container">
                 <div class="navbar-header">
@@ -261,12 +123,12 @@ top:20px;
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html" ><h2 id="logo_pent" style="color:#0099e6;text-transform: uppercase;">Pentagon Academy</h2></a>
+                    <a class="navbar-brand" href="index.html" ><h2 id="logo_pent" style="color:#0099e6;text-transform: uppercase;"><span style="color: #0099e6;">Pentagon Academy</h2></a>
                 </div>
-				
+                
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="scroll "><a href="index.php">Home</a></li>
+                        <li class="scroll"><a href="index.php">Home</a></li>
                                       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">About us
         <span class="caret"></span></a>
@@ -282,77 +144,127 @@ top:20px;
         <ul class="dropdown-menu">
      <li><a href="#">Online Examination</a></li>
      <li class="scroll"><a href="result.php">Results</a></li>     
-        <li class="scroll"><a href="studymaterials.php">Study Materials</a></li>    
+       <li class="scroll"><a href="studymaterials.php">Study Materials</a></li>    
         </ul>
-      </li>             <li class="scroll"><a href="#">Courses</a></li>
-                        <li class="scroll"><a href="ApplicationForm.php">Application Form</a></li>
-                        <li class="scroll"><a href="index.php#meet-team">Team</a></li>  
+      </li>            <li class="scroll"><a href="#">Courses</a></li>
+                        <li class="scroll"><a href="#">Application Form</a></li>
+                        <li class="scroll"><a href="index.html#meet-team">Team</a></li>  
                         <li class="scroll"><a href="#">Careers</a></li> 
                              
                     </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-    </header><!--/header-->
-   
+    <h1 style="margin-top: 100px">Application Form</h1>
 
-    
+    <div class="container" style="margin-top: 10px;background-color: #f9f9f9">
+</div>
 
-    <section id="features">
-        <div class="container">
-            <div class="section-title-wrapper">
-                    <div class="section-title" id="core-value">
-                        <h3  style="padding: 10px; margin-top: 50px">EXAMS</h3>
-                </div>
-              </div>
-            <div class="row">
-      <?php 
-          
-    $qry1="SELECT * FROM `study_mets`";
-    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
-    while($row=mysqli_fetch_array($done1))
-      {
-         ?>
-                <div class="col-sm-6">
-                   <a href="<?php echo $row[2];?>" target="_blank"> <div class="media service-box wow fadeInRight">
-                        <div class="pull-left">
-                            <i class="fa fa-arrow-circle-right"></i>
-                        </div><br>
-                        <div class="media-body">
-                        <h4 class="media-heading"><?php echo $row[1]; ?></h4>
-                         
-                        </div>
-                    </div>
-                    </a>
-                  
-                </div>
-                <?php } ?>
-            </div>
+<div >
+ <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+    <form class="form">
+        <div class="form-group">
+            <label for="exampleInputName2" style="padding: 5px">Name of the Student</label>
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="Your Name">
+            <label for="exampleInputEmail2"style="padding: 5px">Father's Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Father's Name">
         </div>
-    </section>
-
-    
-
-  
-    
-
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    
-                </div>
-                <div class="col-sm-6">
-                    <ul class="social-icons">   
-   <li><a href="https://www.facebook.com/Pentagon-Academy-386624538472134/"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                       
-                    </ul>
-                </div>
-            </div>
+        <div class="form-group">
+            <label for="exampleInputName2"style="padding: 5px">Date of Birth</label>
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="Day/Month/Year">
+            <label for="exampleInputEmail2"style="padding: 5px">Occupation of Father</label>
+                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Occupation of Father">
         </div>
-    </footer><!--/#footer-->
+        <div class="form-group">
+            <label for="exampleInputName2"style="padding: 5px">Nationality</label>
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="Nationality">
+            <label class="checkbox-inline" style="margin-top: 20px">
+            <input type="checkbox" id="inlineCheckbox1" value="option1"> Male
+            </label>
+            <label class="checkbox-inline" style="margin-top: 20px">
+            <input type="checkbox" id="inlineCheckbox2" value="option2"> Female
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputName2"style="padding: 5px">Address</label>
+                <textarea type="text" class="form-control" id="exampleInputName2" placeholder="Address">  </textarea>
+        </div>
+        <div class="form-group ">
+            <label for="exampleInputName2"style="padding: 5px">Parent's Numbers</label>
+                <input type="text" class="form-control col-xs-4" id="exampleInputName2" placeholder="Mobile">
+                <input type="text" class="form-control col-xs-4" id="exampleInputEmail2" placeholder="Office" style="margin-top: 10px">
+        </div>
+        </div>     
+        <!-- </form> -->
+        <div class="col-md-6">
+            <!-- <form> -->
+                <div class="form-group">
+    <label for="exampleInputEmail1">Name of School Studying</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name of School Studying">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Contact Number</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Contact Number">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">Class</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Class">
+  </div>
+        <div class="checkbox">
+            <label class="checkbox-inline" style="margin-top: 20px">
+            <input type="checkbox" id="inlineCheckbox1" value="option1"> Morning
+            </label>
+            <label class="checkbox-inline" style="margin-top: 20px">
+            <input type="checkbox" id="inlineCheckbox2" value="option2"> Evening
+            </label>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">House Name</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="House Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Place</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Place">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Post</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Post">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">PIN</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="PIN">
+  </div>
+  <input type="submit" class="form-control" id="exampleInputPassword1" value="submit" style="color: #fff;background-color: black">
+    </form>
+        </div>
+
+
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script src="js1/jquery.js"></script>
     <script src="js1/bootstrap.min.js"></script>

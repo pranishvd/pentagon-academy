@@ -147,9 +147,7 @@ include("config.php");
         <ul class="dropdown-menu">
      <li class="scroll"><a href="#about">Pentagon Academy</a></li>     
     <li><a href="#core-value">Core Values</a></li>
-    <!-- <li><a href="#cta2">Vision</a></li>    
-    <li><a href="#services">Mission</a></li>
-       -->  
+    
    </ul>
       </li>  
        <li class="scroll"><a href="gallery_test.html">Gallery</a></li>
@@ -162,7 +160,7 @@ include("config.php");
          <li class="scroll"><a href="studymaterials.php">Study Materials</a></li>     
         </ul>
       </li>             <li class="scroll"><a href="#">Courses</a></li>
-                        <li class="scroll"><a href="#">Application Form</a></li>
+                        <li class="scroll"><a href="ApplicationForm.php">Application Form</a></li>
                         <li class="scroll"><a href="#meet-team">Team</a></li>  
                         <li class="scroll"><a href="#">Careers</a></li> 
                              

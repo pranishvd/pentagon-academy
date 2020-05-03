@@ -204,7 +204,7 @@ top:20px;
         <li class="scroll"><a href="studymaterials.php">Study Materials</a></li>    
         </ul>
       </li>               <li class="scroll"><a href="#">Courses</a></li>
-                        <li class="scroll"><a href="#">Application Form</a></li>
+                        <li class="scroll"><a href="ApplicationForm.php">Application Form</a></li>
                         <li class="scroll"><a href="index.html#meet-team">Team</a></li>  
                         <li class="scroll"><a href="#">Careers</a></li> 
                              
