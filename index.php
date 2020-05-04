@@ -200,7 +200,7 @@ include("config.php");
                                                 </li>
                                                 <li><a href="index.html">Courses</a>
                                                 </li>
-                                                <li><a href="latest-news.html">Application Form</a>
+                                                <li><a href="ApplicationForm.php">Application Form</a>
                                                 </li>
                                                 <li><a href="#team">Team</a></li>
                                                 <li><a href="contact.html">Careers</a></li>
@@ -592,7 +592,7 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                             <div class="col-md-3 col-sm-4">
                                 <div class="single-footer-widget">
                                     <h3>GET IN TOUCH</h3>
-                                    <form id="main-contact-form" name="contact-form" method="post" action="#">
+                                    <form id="main-contact-form" name="contact-form" method="post" action="mail.php">
                                 <div class="form-group">
                                     <input type="text" name="name" class="form-control" placeholder="Name" required>
                                 </div>
