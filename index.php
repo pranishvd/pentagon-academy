@@ -592,7 +592,7 @@ We dare to dream of the possibilities.No idea is too small or too large if it ma
                             <div class="col-md-3 col-sm-4">
                                 <div class="single-footer-widget">
                                     <h3>GET IN TOUCH</h3>
-                                    <form id="main-contact-form" name="contact-form" method="post" action="mail.php">
+                                <form id="main-contact-form" name="contact-form" method="post" action="mail.php">
                                 <div class="form-group">
                                     <input type="text" name="name" class="form-control" placeholder="Name" required>
                                 </div>
