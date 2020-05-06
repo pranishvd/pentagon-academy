@@ -101,7 +101,7 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
                     <i class="fa fa-envelope-o"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">12</p>
+                    
                     <p class="text-muted">Courses</p>
                 </div>
              </div>
@@ -113,7 +113,7 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
                 <span class="icon-box bg-color-green set-icon">
                     <i class="fa fa-bars"></i>
                 </span>                <div class="text-box" >
-                    <p class="main-text">3</p>
+                    
                     <p class="text-muted">Exams</p>
                 </div>
              </div>
@@ -125,19 +125,20 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
                     <i class="fa fa-bell-o"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">240</p>
+                    
                     <p class="text-muted">Subjects</p>
                 </div>
              </div>
-		     </div></a><a href="#" class="cell_item">
+		     </div></a>
+         <a href="students.php" class="cell_item">
                     <div class="col-md-3 col-sm-6 col-xs-6">           
 			<div class="panel panel-back noti-box">
                 <span class="icon-box bg-color-brown set-icon">
                     <i class="fa fa-rocket"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">3</p>
-                    <p class="text-muted">Pending</p>
+                    
+                    <p class="text-muted">Students</p>
                 </div>
              </div>
 		     </div>

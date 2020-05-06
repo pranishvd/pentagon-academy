@@ -6,7 +6,26 @@ error_reporting(0);
   {
     header("Location:index.php");
   }
-?><!DOCTYPE html>
+
+if(!isset($_POST['next']))
+{
+   header("Location:results.php");
+  // print_r($_POST);
+}
+else
+{
+  $course = $_POST['course'];
+  $exam_id = $_POST['exam'];
+  $subject_id = $_POST['subject'];
+  $students = "SELECT * FROM `students` WHERE course='$course'";
+ // $course = "SELECT * FROM `course` WHERE id='$course'";
+  $exam = "SELECT * FROM `exam_type` WHERE id='$exam_id'";
+  $subject = "SELECT subjects.*, course.name as course_name FROM `subjects` LEFT JOIN `course` ON course.id = subjects.course WHERE subjects.id='$subject_id'";
+}
+
+?>
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
@@ -22,12 +41,99 @@ error_reporting(0);
     <link href="assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <script src="assets/js/jquery.js"></script>  
    <style type="text/css">
+
      .cell_item span:hover
      {
 background-color: blue;
      }
    </style>
+
+<script type="text/javascript">
+  function addMax()
+  {
+    $('#max_mark').attr('disabled','disabled')
+
+
+  }
+  function addMark(student)
+  {
+    var max_mark = $('#max_mark').val()
+    var mark = $('#mark_'+student).val()
+    var subject = "<?php echo $subject_id;?>";
+    var exam = "<?php echo $exam_id ?>";
+    if (max_mark != "")
+    {
+      max_mark = 100;
+    }
+
+    if (mark && max_mark)
+    {
+    $.ajax({
+      url: 'add_mark.php',
+      type: 'POST',
+      data: {mark: mark, max_mark: max_mark, subject: subject, exam: exam, student: student },
+        error: function(data) {
+          alert('Something is wrong');
+          console.log(data)
+           },
+
+           success: function(data) {
+                if (data == "success")
+                {
+                  $('#add_'+student).attr('disabled','disabled')
+                  $('#remove_'+student).removeAttr('disabled')
+                }  
+
+           }
+
+        });  
+  }
+  else
+  {
+    //reqiued
+  }
+
+  }
+
+  function removeMark(student)
+  {
+    var subject = "<?php echo $subject_id;?>";
+    var exam = "<?php echo $exam_id ?>";
+
+
+    if (subject && exam)
+    {
+    $.ajax({
+      url: 'remove_mark.php',
+      type: 'POST',
+      data: {subject: subject, exam: exam, student: student },
+        error: function(data) {
+          alert('Something is wrong');
+          console.log(data)
+           },
+
+           success: function(data) {
+                if (data == "success")
+                {
+                  $('#remove_'+student).attr('disabled','disabled')
+                  $('#add_'+student).removeAttr('disabled')
+                }  
+
+           }
+
+        });  
+  }
+  else
+  {
+    //reqiued
+  }
+
+  }
+
+</script> 
+
 </head>
 <body>
     <div id="wrapper">
@@ -58,7 +164,7 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
                     <li>
                         <a  href="#"><i class="fa fa-dashboard fa-3x"></i>Online Examination</a>                    </li>
                       <li>
-                        <a  href="#"><i class="fa fa-desktop fa-3x"></i> Notification</a>                    </li>
+                        <a  href="notification_up.php"><i class="fa fa-desktop fa-3x"></i> Notification</a>                    </li>
                      <li>
                         <a  href="study_mets.php"><i class="fa fa-file fa-3x"></i> Study Mets</a>                    </li>
                       <li  >
@@ -77,6 +183,7 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
                         </ul>
                   </li>
                 </ul>
+               
             </div>
             
         </nav>  
@@ -85,85 +192,58 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Subjects</h2>        
+                     <h2>Upload Results</h2>
+                       <a class="btn btn-link" href="results.php">Back</a>
+        
                     </div>
                    
                 </div>
+
                 <hr />
-               <form method="POST" enctype="multipart/form-data">
- <div class="form-group">
-    <label for="email">Course:</label>
-<select class="form-control" required name="course">
-  <option value="">---Select---</option>
-<?php 
-          
-    $qry1="SELECT * FROM `course`";
-    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
-    while($row=mysqli_fetch_array($done1))
-      {
-          ?>
-         <option value="<?php echo $row[0];?>"><?php echo $row[1]; ?></option>
-         
-          <?php           
-      }
-      ?>
-
-</select>
-  </div>
-   <div class="form-group">
-    <label for="email">Subject:</label>
-    <input type="text" class="form-control" placeholder="Enter the SUbject Name" name="subject">
-  </div>
-  <br>
-   <div class="form-group">
-  <button type="submit" class="btn btn-danger form-control">Add</button></div>
-</form>  
-<br>         
-<?php 
-if($_POST)
-{
-  $course=$_POST['course'];
-  $name=$_POST['subject'];
-$qr="INSERT INTO `subjects`(`subject_name`,`course`) VALUES('$name','$course')";
-              $ex=mysqli_query($con,$qr) or die(mysqli_error($con));
-
-              if($ex)
-              {
-                ?>
-                  <div class="alert alert-success">
-  <strong>Success!</strong>
-</div>
-                <?php
-              }
-              else
-              {
-                ?>
-                <div class="alert alert-danger">
-  <strong>Error!</strong> try again.
-</div>
-                <?php
-              }
-}
-
-?>
 
       <!-- /. ROW  -->
-         <br>
+<div class="container">
+  <?php 
+  $subject_data=mysqli_query($con,$subject)or die("Could not Connect My Sqli_DB");
+  $subject_row = mysqli_fetch_row($subject_data);
+  $exam_data=mysqli_query($con,$exam)or die("Could not Connect My Sqli_DB");
+  $exam_row = mysqli_fetch_row($exam_data);  
+  ?>
+  <h2><?php echo $subject_row[3]." => ".$subject_row[1];?></h2>
+  <h2><b>Exam : </b><?php echo $exam_row[1];?></h2>
+</div>
+
 
             <hr/>
 <table class="table table-condensed">
-    <thead><tr class="danger" ><th style="text-align: center; vertical-align: middle;">Name</th>
-      <th style="text-align: center; vertical-align: middle;">Course</th>
-      <th></th></tr></thead>
+    <thead><tr class="danger" >
+      <th style="text-align: center; vertical-align: middle;">Name</th>
+      <th style="text-align: center; vertical-align: middle;">Admission no</th>
+      <th style="text-align: center; vertical-align: middle;">Mark</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
     <tbody>
+      <tr class="success" style='text-align: center; vertical-align: middle;'>
+          <td>Max. Mark</td>
+          <td></td>
+          <td><input type="text" id="max_mark" value="100" class="form-control" style="width: 20%;text-align: center;margin-left: 40%;" placeholder="mark"></td>
+         <td><span class="btn btn-success" onclick="addMax()" id="add_max_mark">Update</span></a></td>  
+        <td></td>
+      </tr>
       <?php 
-          
-    $qry1="SELECT subjects.*, course.name as course_name FROM `subjects` LEFT JOIN `course` ON course.id = subjects.course";
-    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
+
+    $done1=mysqli_query($con,$students)or die("Could not Connect My Sqli_DB");
     while($row=mysqli_fetch_array($done1))
       {
-          echo "<tr class='info' style='text-align: center; vertical-align: middle;' ><td>".$row[1]."</td><td>".$row['course_name']."</td>";?>
-         <td><a href="subject_del.php?id=<?php echo $row[0]; ?>">Delete</a></td>
+
+          echo "<tr class='info' style='text-align: center; vertical-align: middle;' ><td>".$row['name']."</td><td>".$row['admission_no']."</td>";
+          
+          ?>
+          <td><input type="text" id="mark_<?php echo $row['id'];?>" class="form-control" style="width: 20%;text-align: center;margin-left: 40%;" placeholder="mark"></td>
+         <td><span class="btn btn-info" id="add_<?php echo $row['id'];?>" onclick="addMark('<?php echo $row['id'];?>');">Add</span></a></td>
+         <td><span class="btn btn-danger" disabled id="remove_<?php echo $row['id'];?>" onclick="removeMark('<?php echo $row['id'];?>');">Remove</span></a></td>
          </tr>
           <?php           
       }
@@ -189,7 +269,7 @@ $qr="INSERT INTO `subjects`(`subject_name`,`course`) VALUES('$name','$course')";
     <script src="assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
-    
+
    
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 include("config.php");
 error_reporting(0);
   session_start();
@@ -6,11 +6,24 @@ error_reporting(0);
   {
     header("Location:index.php");
   }
-  if($_GET['crs'])
+  if($_GET['exam'] && $_GET['student'])
   {
-    $crs=$_GET['crs'];
-    $subqry="SELECT * FROM `subjects` WHERE course='$crs'";
-    $subex=mysqli_query($con,$subqry)or die("Could not Connect My Sqli_DB");
+    $student=$_GET['student'];
+    $exam = $_GET['exam'];
+    $qry="SELECT mark_sheet.*, subjects.subject_name FROM `mark_sheet` LEFT JOIN `subjects` ON subjects.id = mark_sheet.subject WHERE mark_sheet.student='$student'  AND mark_sheet.exam = '$exam'";
+    $result=mysqli_query($con,$qry)or die("Could not Connect My Sqli_DB");
+    $exam_qry = "SELECT * FROM `exam_type` WHERE id='$exam'";
+    $exam_qry = mysqli_query($con,$exam_qry)or die("Could not Connect My Sqli_DB");
+    $exam_row = mysqli_fetch_row($exam_qry);
+
+    $student_qry="SELECT students.*, course.name as course_name FROM `students` LEFT JOIN `course` ON course.id = students.course WHERE students.id ='$student'";
+    $student_qry = mysqli_query($con,$student_qry)or die("Could not Connect My Sqli_DB");
+    $student_row = mysqli_fetch_row($student_qry);
+
+  }
+  else
+  {
+    header("Location:students.php");
   }
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -94,88 +107,65 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Results Upload</h2>   
-                     <a href="view_result.php" class="btn btn-info">View Results</a>     
-                       
+                     <h2>Pentagon Exam</h2>
+                     <a href="exam_results.php?id=<?php echo $student; ?>">Back</a>   
                     </div>
                    
                 </div>
                 <hr />
                 
-  <form method="POST" enctype="multipart/form-data" action="upload_results.php">
- <div class="form-group">
-    <label for="email">Course:</label>
-    <select id="course" class="form-control"  required name="course">
-  <option value="">---Select---</option>
-<?php 
-          
-    $qry1="SELECT * FROM `course`";
-    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
-    while($row=mysqli_fetch_array($done1))
-      {
+<div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><?php echo $exam_row[1];?></div>
+      <div class="panel-body">
+        <table>
+          <tr>
+            <td>Name:</td>
+            <td><?php echo $student_row[1];?></td>
+          </tr>
+          <tr>
+            <td>Adminssion No: &nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><?php echo $student_row[3];?></td>
+          </tr>
+          <tr>
+            <td>Course: </td>
+            <td><?php echo $student_row[4];?></td>
+          </tr>
+        </table>
+        
+       
+      </div>
+    </div>
 
-            if($crs==$row['id'])
-            {
-            ?>
-         <option selected="selected" value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
-         <?php 
-          }
+  <table class="table table-hover table-center">
+    <thead>
+      <tr class='danger' >
+      <th style='text-align: center; vertical-align: middle;'>Subject</th>
+      <th style='text-align: center; vertical-align: middle;'>Mark</th>
+      <th style='text-align: center; vertical-align: middle;'>Max. Mark</th>
+    </tr>
+    </thead>
+    <tbody>
+      <?php    
+    while($row=mysqli_fetch_array($result))
+      {?>
 
-          else
-          {?>
-               <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option><?php
-          }
+        <tr class='info' style='text-align: center; vertical-align: middle;'>
+          <td>
+            <?php echo $row['subject_name'];?>
+          </td>
+          <td>
+            <?php echo $row['mark'];?>
+          </td>
+          <td>
+            <?php echo $row['max_mark'];?>
+          </td>
+        </tr>
 
-      }
-      ?>
-
-</select>
-  </div>
-  <script type="text/javascript">
-                $("#course").change(function(){
-                  var course_name=$('#course').val();
-                    window.location.assign("results.php?crs="+course_name);
-                });
-
-  </script>
-        <div class="form-group">
-    <label for="email">Exam:</label>
-      <select class="form-control" required name="exam">
-  <option value="">---Select---</option>
-<?php 
-          
-    $qry1="SELECT * FROM `exam_type`";
-    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
-    while($row=mysqli_fetch_array($done1))
-      {
-          ?>
-         <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
-         
-          <?php           
-      }
-      ?>
-
-</select>
-  </div>
-   
-
-  <div class="form-group">
-    <select class="form-control" name="subject">
-        <?php while($row=mysqli_fetch_array($subex))
-      {
-          ?>
-          <option value="<?php echo $row['id']; ?>">
-            <?php echo $row['subject_name']; ?>
-          </option>
-          <?php           
-      }
-      ?>
-</select>
-  </div> 
-  <br>
-   <div class="form-group">
-  <button type="submit" name="next"  class="btn btn-danger form-control">Next</button></div>
-</form>  
+     <?php }?>
+    </tbody>
+  </table>
+</div> 
 <br>         
 
       <!-- /. ROW  -->

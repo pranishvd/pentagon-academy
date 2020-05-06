@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 include("config.php");
 error_reporting(0);
   session_start();
@@ -9,9 +9,13 @@ error_reporting(0);
   if($_GET['crs'])
   {
     $crs=$_GET['crs'];
-    $subqry="SELECT * FROM `subjects` WHERE course='$crs'";
-    $subex=mysqli_query($con,$subqry)or die("Could not Connect My Sqli_DB");
+    $qry="SELECT students.*, course.name as course_name FROM `students` LEFT JOIN `course` ON course.id = students.course WHERE students.course ='$crs'";
   }
+  else
+  {
+    $qry="SELECT students.*, course.name as course_name FROM `students` LEFT JOIN `course` ON course.id = students.course";
+  }
+  
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -28,14 +32,13 @@ error_reporting(0);
     <link href="assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <script src="assets/js/jquery.js"></script>  
+   <script src="assets/js/jquery.js"></script>
    <style type="text/css">
      .cell_item span:hover
      {
 background-color: blue;
      }
    </style>
-
 </head>
 <body>
     <div id="wrapper">
@@ -57,23 +60,23 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-				<li class="text-center">
+                  <ul class="nav" id="main-menu">
+        <li class="text-center">
                     <img src="assets/img/find_user.png" class="user-image img-responsive"/>
-					</li>
-				
-					
+          </li>
+        
+          
                     <li>
                         <a  href="#"><i class="fa fa-dashboard fa-3x"></i>Online Examination</a>                    </li>
                       <li>
-                        <a  href="#"><i class="fa fa-desktop fa-3x"></i> Notification</a>                    </li>
+                        <a  href="notification_up.php"><i class="fa fa-desktop fa-3x"></i> Notification</a>                    </li>
                      <li>
                         <a  href="study_mets.php"><i class="fa fa-file fa-3x"></i> Study Mets</a>                    </li>
                       <li  >
                         <a  href="#"><i class="fa fa-table fa-3x"></i> Attendance</a>                    </li>
                     <li  >
-                        <a  href="results.php"><i class="fa fa-edit fa-3x"></i> Results </a>                    </li>					
-					                   
+                        <a  href="results.php"><i class="fa fa-edit fa-3x"></i> Results </a>                    </li>         
+                             
                     <li>
                       <a href="#"><i class="fa fa-sitemap fa-3x"></i>Request<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -94,23 +97,97 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Results Upload</h2>   
-                     <a href="view_result.php" class="btn btn-info">View Results</a>     
-                       
+                     <h2>Students</h2>        
                     </div>
                    
                 </div>
+                <div class="container">
+                  <?php 
+              if($_POST)
+              {
+                $name=$_POST['name'];
+                $admission_no=$_POST['admission_no'];
+                $course=$_POST['course'];
+              $qr="INSERT INTO `students`(`name`,`admission_no`, `course`) VALUES('$name','$admission_no','$course')";
+                            $ex=mysqli_query($con,$qr) or die(mysqli_error($con));
+
+                            if($ex)
+                            {
+                              ?>
+                                <div class="alert alert-success">
+                <strong>Success!</strong>
+              </div>
+                              <?php
+                            }
+                            else
+                            {
+                              ?>
+                              <div class="alert alert-danger">
+                <strong>Error!</strong> try again.
+              </div>
+                              <?php
+                            }
+              }
+
+              ?>
+
+                  
+                </div>
                 <hr />
-                
-  <form method="POST" enctype="multipart/form-data" action="upload_results.php">
+
+<form method="POST" enctype="multipart/form-data" >
+ <div class="col-sm-6 ">
+  <div class="form-group">
+    <label for="email">Students Name:</label>
+    <input type="text" class="form-control" required placeholder="Enter the Student Name" name="name">
+  </div>
+ <div class="form-group">
+    <label for="email">Admission Number:</label>
+    <input type="text" class="form-control" required placeholder="Enter the Admission Number" name="admission_no">
+  </div>
+</div>
+<div class="col-sm-6">
  <div class="form-group">
     <label for="email">Course:</label>
-    <select id="course" class="form-control"  required name="course">
-  <option value="">---Select---</option>
-<?php 
+    <select class="form-control" name="course" required>
+      <option value="">--SELECT--</option>
+      <?php 
           
     $qry1="SELECT * FROM `course`";
     $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
+    while($row=mysqli_fetch_array($done1))
+      {
+          echo "<option value='".$row[0]."'>".$row[1]."</option>";?>
+
+          <?php           
+      }
+      ?>      
+    </select>
+  </div> 
+  <br> 
+   <div class="form-group">
+  <button type="submit" class="btn btn-danger form-control">Add</button></div>
+</div>
+</form>  
+<br>         
+
+      <!-- /. ROW  -->
+         <br>
+
+   <hr/>
+   <br>
+   <br>
+
+<div class="col-sm-12">
+ <div class="well form-group">
+    <label for="email">Course:</label>
+    <select class="form-control" id="course" required>
+    
+    <option value="">All</option>
+    <?php 
+          
+    $qry1="SELECT * FROM `course`";
+    $done1=mysqli_query($con,$qry1)or die(mysqli_error());
     while($row=mysqli_fetch_array($done1))
       {
 
@@ -127,61 +204,41 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
           }
 
       }
-      ?>
-
-</select>
+      ?>    
+    </select>
   </div>
+</div>
   <script type="text/javascript">
                 $("#course").change(function(){
                   var course_name=$('#course').val();
-                    window.location.assign("results.php?crs="+course_name);
+                    window.location.assign("students.php?crs="+course_name);
                 });
 
   </script>
-        <div class="form-group">
-    <label for="email">Exam:</label>
-      <select class="form-control" required name="exam">
-  <option value="">---Select---</option>
-<?php 
+  <br>            
+<table class="table table-condensed">
+    <thead><tr class="danger" ><th style="text-align: center; vertical-align: middle;">Name</th>
+      <th style="text-align: center; vertical-align: middle;">Course</th>
+      <th></th></tr></thead>
+    <tbody>
+      <?php 
           
-    $qry1="SELECT * FROM `exam_type`";
-    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
+   
+    $done1=mysqli_query($con,$qry)or die(mysqli_error($con));
     while($row=mysqli_fetch_array($done1))
       {
+
+          echo "<tr class='info' style='text-align: center; vertical-align: middle;' ><td><a href='exam_results.php?id=".$row[0]."'>".$row['name']."</a></td>";
+          echo "<td>".$row['course_name']."</td>";
           ?>
-         <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
-         
+         <td><a href="student_del.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+         </tr>
           <?php           
       }
       ?>
-
-</select>
-  </div>
-   
-
-  <div class="form-group">
-    <select class="form-control" name="subject">
-        <?php while($row=mysqli_fetch_array($subex))
-      {
-          ?>
-          <option value="<?php echo $row['id']; ?>">
-            <?php echo $row['subject_name']; ?>
-          </option>
-          <?php           
-      }
-      ?>
-</select>
-  </div> 
-  <br>
-   <div class="form-group">
-  <button type="submit" name="next"  class="btn btn-danger form-control">Next</button></div>
-</form>  
-<br>         
-
-      <!-- /. ROW  -->
-         <br>
-
-               
+        
+    </tbody>
+  </table>
     </div>
              <!-- /. PAGE INNER  -->
             </div>

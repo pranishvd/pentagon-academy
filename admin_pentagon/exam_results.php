@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 include("config.php");
 error_reporting(0);
   session_start();
@@ -6,11 +6,15 @@ error_reporting(0);
   {
     header("Location:index.php");
   }
-  if($_GET['crs'])
+  if($_GET['id'])
   {
-    $crs=$_GET['crs'];
-    $subqry="SELECT * FROM `subjects` WHERE course='$crs'";
-    $subex=mysqli_query($con,$subqry)or die("Could not Connect My Sqli_DB");
+    $student=$_GET['id'];
+    $qry="SELECT mark_sheet.*, exam_type.exam_name FROM `mark_sheet` LEFT JOIN `exam_type` ON exam_type.id = mark_sheet.exam WHERE student='$student' GROUP BY mark_sheet.exam";
+    $result=mysqli_query($con,$qry)or die("Could not Connect My Sqli_DB");
+  }
+  else
+  {
+    header("Location:students.php");
   }
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -94,88 +98,38 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Results Upload</h2>   
-                     <a href="view_result.php" class="btn btn-info">View Results</a>     
+                     <h2>Pentagon Exam</h2>
+                     <a href="students.php">Back</a>    
                        
                     </div>
                    
                 </div>
                 <hr />
                 
-  <form method="POST" enctype="multipart/form-data" action="upload_results.php">
- <div class="form-group">
-    <label for="email">Course:</label>
-    <select id="course" class="form-control"  required name="course">
-  <option value="">---Select---</option>
-<?php 
-          
-    $qry1="SELECT * FROM `course`";
-    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
-    while($row=mysqli_fetch_array($done1))
-      {
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr class='danger' style='text-align: center; vertical-align: middle;'>
+      <th style='text-align: center; vertical-align: middle;'>Exams</th>
+    </tr>
+    </thead>
+    <tbody>
+      <?php    
+    while($row=mysqli_fetch_array($result))
+      {?>
 
-            if($crs==$row['id'])
-            {
-            ?>
-         <option selected="selected" value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
-         <?php 
-          }
+        <tr class='info' style='text-align: center; vertical-align: middle;'>
+          <td>
+            <a href="mark_sheet.php?exam=<?php echo $row['exam'];?>&student=<?php echo $student; ?>">
+            <?php echo $row['exam_name'];?>
+            </a>
+          </td>
+        </tr>
 
-          else
-          {?>
-               <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option><?php
-          }
-
-      }
-      ?>
-
-</select>
-  </div>
-  <script type="text/javascript">
-                $("#course").change(function(){
-                  var course_name=$('#course').val();
-                    window.location.assign("results.php?crs="+course_name);
-                });
-
-  </script>
-        <div class="form-group">
-    <label for="email">Exam:</label>
-      <select class="form-control" required name="exam">
-  <option value="">---Select---</option>
-<?php 
-          
-    $qry1="SELECT * FROM `exam_type`";
-    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
-    while($row=mysqli_fetch_array($done1))
-      {
-          ?>
-         <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
-         
-          <?php           
-      }
-      ?>
-
-</select>
-  </div>
-   
-
-  <div class="form-group">
-    <select class="form-control" name="subject">
-        <?php while($row=mysqli_fetch_array($subex))
-      {
-          ?>
-          <option value="<?php echo $row['id']; ?>">
-            <?php echo $row['subject_name']; ?>
-          </option>
-          <?php           
-      }
-      ?>
-</select>
-  </div> 
-  <br>
-   <div class="form-group">
-  <button type="submit" name="next"  class="btn btn-danger form-control">Next</button></div>
-</form>  
+     <?php }?>
+    </tbody>
+  </table>
+</div> 
 <br>         
 
       <!-- /. ROW  -->
