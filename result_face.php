@@ -8,7 +8,7 @@ include("config.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Pentagon academy ,Best tution center in calicut,Best tution center in calicut,tution for plus two,tution for plus one,hiegher secondary calicut,pentagon academy,calicut,kozhicode,pentagonacademy.com,commerce,best kozhikode,tution center,privet school,one year,one year plus two,one year hier secondary,kerala,mcom,bcom,bca,bba,pentagon academy com,pentagonacademy.com,pentagonacademy calicut,pentagon academy kozhikode,malappuram,kannur,pentagonacademy calicut,pentagon academy kozhikode </title>
+    <title>Pentagon academy </title>
 	<!-- core CSS -->
     <link href="css1/bootstrap.min.css" rel="stylesheet">
     <link href="css1/font-awesome.min.css" rel="stylesheet">

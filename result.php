@@ -8,7 +8,7 @@ include("config.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Pentagon academy ,Best tution center in calicut,Best tution center in calicut,tution for plus two,tution for plus one,hiegher secondary calicut,pentagon academy,calicut,kozhicode,pentagonacademy.com,commerce,best kozhikode,tution center,privet school,one year,one year plus two,one year hier secondary,kerala,mcom,bcom,bca,bba,pentagon academy com,pentagonacademy.com,pentagonacademy calicut,pentagon academy kozhikode,malappuram,kannur,pentagonacademy calicut,pentagon academy kozhikode </title>
+    <title>Pentagon academy</title>
 	<!-- core CSS -->
     <link href="css1/bootstrap.min.css" rel="stylesheet">
     <link href="css1/font-awesome.min.css" rel="stylesheet">
@@ -259,7 +259,7 @@ top:20px;
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html" ><h2 id="logo_pent" style="color:#0099e6;text-transform: uppercase;"><span style="color: #0099e6;">Pentagon Academy</h2></a>
+                    <a class="navbar-brand" href="index.php" ><h2 id="logo_pent" style="color:#0099e6;text-transform: uppercase;"><span style="color: #0099e6;">Pentagon Academy</span></h2></a>
                 </div>
 				
                 <div class="collapse navbar-collapse navbar-right">
@@ -306,18 +306,18 @@ top:20px;
             <div class="row">
       <?php 
           
-    $qry1="SELECT * FROM `exam_type`";
+    $qry1="SELECT mark_sheet.*, exam_type.exam_name FROM `mark_sheet` LEFT JOIN `exam_type` ON exam_type.id = mark_sheet.exam GROUP BY mark_sheet.exam";
     $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
     while($row=mysqli_fetch_array($done1))
       {
          ?>
                 <div class="col-sm-6">
-                   <a href="result_face.php?id= <?php echo $row[1]; ?>"> <div class="media service-box wow fadeInRight">
+                   <a href="result_face.php?id= <?php echo $row['exam']; ?>"> <div class="media service-box wow fadeInRight">
                         <div class="pull-left">
                             <i class="fa fa-arrow-circle-right"></i>
                         </div><br>
                         <div class="media-body">
-                        <h4 class="media-heading"><?php echo $row[1]; ?></h4>
+                        <h4 class="media-heading"><?php echo $row['exam_name']; ?></h4>
                          
                         </div>
                     </div>
