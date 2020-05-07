@@ -172,7 +172,14 @@ if($_POST)
   $class_name = $_POST['class_name'];
   $occupation_of_father = $_POST['occupation_of_father'];
   $batch = $_POST['batch'];
-  $subjects = implode(',', $_POST['subjects']);
+  if (isset($_POST['subjects']))
+  {
+  $subjects = implode(', ', $_POST['subjects']);
+  }
+  else
+  {
+    $subjects = "";
+  }
   $nationality = $_POST['nationality'];
   $house_name = $_POST['house_name'];
   $gender = $_POST['gender'];
@@ -214,16 +221,16 @@ else
     <form class="form" method="post">
         <div class="form-group">
             <label for="exampleInputName2" >Name of the Student</label>
-            <input type="text" class="form-control" name="student_name" id="exampleInputName2" placeholder="Your Name">
+            <input type="text" class="form-control" name="student_name" id="exampleInputName2" placeholder="Your Name" required>
 
         </div>
         <div class="form-group">
             <label for="exampleInputEmail2">Father's Name</label>
-                <input type="text" class="form-control" name="name_of_father" id="exampleInputEmail2" placeholder="Father's Name">            
+                <input type="text" class="form-control" name="name_of_father" id="exampleInputEmail2" placeholder="Father's Name" required>            
         </div>
         <div class="form-group">
             <label for="exampleInputName2">Date of Birth</label>
-                <input type="text" name="dob" class="form-control" id="exampleInputName2" placeholder="Day/Month/Year">
+                <input type="text" name="dob" class="form-control" id="exampleInputName2" placeholder="Day/Month/Year" required>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail2">Occupation of Father</label>
@@ -235,7 +242,7 @@ else
         </div>
         <div >
             <label class="checkbox-inline" style="margin-top: 20px">
-            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" checked name="gender" value="Male"> Male
             </label>
             <label class="checkbox-inline" style="margin-top: 20px">
             <input type="radio" name="gender" value="Female"> Female
@@ -247,7 +254,7 @@ else
         </div>
         <div class="form-group ">
             <label for="exampleInputName2">Parent's Numbers</label>
-            <input type="text" class="form-control col-xs-4" placeholder="Mobile" name="parent_mobile">
+            <input type="text" class="form-control col-xs-4" placeholder="Mobile" required name="parent_mobile">
                 <div style="padding: 20px 0px;"></div>
                 <input type="text" class="form-control col-xs-4" name="parent_office" placeholder="Office" style="margin-top: 10px">
         </div>
@@ -258,21 +265,21 @@ else
 
     <div class="form-group">
     <label for="exampleInputEmail1" >Name of School Studying</label>
-    <input type="text" class="form-control" name="school_name"  placeholder="Name of School Studying">
+    <input type="text" class="form-control" name="school_name" required placeholder="Name of School Studying">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Contact Number</label>
-    <input type="text" class="form-control" name="contact_number"  placeholder="Contact Number">
+    <input type="text" class="form-control" name="contact_number" required placeholder="Contact Number">
   </div>
   <div class="form-group">
     <label for="exampleInputFile">Class</label>
-    <input type="text" class="form-control" name="class_name" placeholder="Class">
+    <input type="text" class="form-control" name="class_name" required placeholder="Class">
   </div>
     <div class="form-group">
         <label for="exampleInputFile">Batch</label>
         <div class="form-group">
             <label class="checkbox-inline" style="margin-top: 12px">
-            <input type="radio" value="Morning" name="batch"> Morning
+            <input type="radio" value="Morning" name="batch" checked> Morning
             </label>
             <label class="checkbox-inline" style="margin-top: 12px">
             <input type="radio"  value="Evening" name="batch"> Evening
@@ -320,7 +327,7 @@ else
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Place</label>
-    <input type="text" class="form-control" name="place" placeholder="Place">
+    <input type="text" class="form-control" required name="place" placeholder="Place">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Post</label>

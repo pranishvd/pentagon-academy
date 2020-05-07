@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 include("config.php");
 error_reporting(0);
   session_start();
@@ -49,7 +49,7 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
-           <ul class="nav" id="main-menu">
+                  <ul class="nav" id="main-menu">
         <li class="text-center">
                     <img src="assets/img/find_user.png" class="user-image img-responsive"/>
           </li>
@@ -59,9 +59,8 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
                         <a  href="#"><i class="fa fa-dashboard fa-3x"></i>Online Examination</a>                    </li>
                       <li>
                         <a  href="notification_up.php"><i class="fa fa-desktop fa-3x"></i> Notification</a>                    </li>
-                        <li>
+                     <li>
                         <a  href="study_mets.php"><i class="fa fa-file fa-3x"></i> Study Mets</a>                    </li>
-                    
                       <li  >
                         <a  href="#"><i class="fa fa-table fa-3x"></i> Attendance</a>                    </li>
                     <li  >
@@ -83,83 +82,41 @@ font-size: 16px;"> <a href="logout.php" class="btn btn-danger square-btn-adjust"
             
         </nav>  
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper" >
+       <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Admin Dashboard</h2>   
-                        
+                     <h2>Exams</h2>        
                     </div>
-                </div>              
-                 <!-- /. ROW  -->
-                  <hr />
-                <div class="row "><a href="course.php" class="cell_item"> 
-                <div class="col-md-3 col-sm-6 col-xs-6">    
-                      
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-red set-icon">
-                    <i class="fa fa-envelope-o"></i>
-                </span>
-                <div class="text-box" >
-                    
-                    <p class="text-muted">Courses</p>
+                   
                 </div>
-             </div>
+                <hr />
 
-		     </div>
-             </a>   <a href="exams.php" class="cell_item">
-    <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-green set-icon">
-                    <i class="fa fa-bars"></i>
-                </span>                <div class="text-box" >
-                    
-                    <p class="text-muted">Exams</p>
-                </div>
-             </div>
-		     </div>
-             </a><a href="subjects.php" class="cell_item">
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-blue set-icon">
-                    <i class="fa fa-bell-o"></i>
-                </span>
-                <div class="text-box" >
-                    
-                    <p class="text-muted">Subjects</p>
-                </div>
-             </div>
-		     </div></a>
-         <a href="students.php" class="cell_item">
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-brown set-icon">
-                    <i class="fa fa-rocket"></i>
-                </span>
-                <div class="text-box" >
-                    
-                    <p class="text-muted">Students</p>
-                </div>
-             </div>
-		     </div>
-       </a>
-
-         <a href="applications.php" class="cell_item">
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-            <div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-brown set-icon">
-                    <i class="fa fa-list"></i>
-                </span>
-                <div class="text-box" >
-                    
-                    <p class="text-muted">Applications</p>
-                </div>
-             </div>
-             </div>
-       </a>
-
-			</div>
-              
+<table class="table table-condensed">
+    <thead><tr class="danger" >
+      <th style="text-align: center; vertical-align: middle;">Name</th>
+      <th style="text-align: center; vertical-align: middle;">School</th>
+      <th style="text-align: center; vertical-align: middle;">Class</th>
+      <th></th>
+      <th></th>
+    </tr></thead>
+    <tbody>
+      <?php 
+          
+    $qry1="SELECT * FROM `application_form`";
+    $done1=mysqli_query($con,$qry1)or die("Could not Connect My Sqli_DB");
+    while($row=mysqli_fetch_array($done1))
+      {
+          echo "<tr class='info' style='text-align: center; vertical-align: middle;' ><td>".$row[1]."</td><td>".$row['school_name']."</td><td>".$row['class_name']."</td>";?>
+         <td><a href="preview_application.php?id=<?php echo $row[0]; ?>">Print</a></td>
+         <td><a href="application_del.php?id=<?php echo $row[0]; ?>">Delete</a></td>
+         </tr>
+          <?php           
+      }
+      ?>
+        
+    </tbody>
+  </table>
     </div>
              <!-- /. PAGE INNER  -->
             </div>

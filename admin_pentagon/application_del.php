@@ -14,22 +14,23 @@ else
 
 
 $id=$_GET['id'];
-$qr="delete from notification where id='$id'";
-$ex=mysqli_query($con,$qr);
+$qr="delete from application_form where id='$id'";
+$ex=mysqli_query($con,$qr) or die(mysqli_error($con));
 if($ex)
 {
 
 	?>
 	<script>
-	window.location.assign("notification_up.php");
+	window.location.assign("applications.php");
 	</script>
     <?php
 }
 else
 {
+	//print_r($ex);
 ?>	<script>
 	alert("Error");
-	window.location.assign("notification_up.php");
+	window.location.assign("applications.php");
 	</script>
 <?php }
 ?>
